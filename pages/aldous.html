@@ -14,6 +14,7 @@ String.prototype.replaceAt=function(index, character) {
 
 function myFunction() {
 	document.getElementById("main").innerHTML = "It's Aldous!";
+	origText = document.getElementById("main").innerHTML;
 }
 
 origText = document.getElementById("main").innerHTML;
@@ -24,7 +25,13 @@ function glitch()
 	text = document.getElementById("main").innerHTML;
 	index = Math.floor(Math.random() * text.length);
 	console.log(index);
-	char = String.fromCharCode(65 + Math.floor(Math.random()*50));
+	if (Math.random() > 0.9) {
+		char = String.fromCharCode(65 + Math.floor(Math.random()*50));	
+	}
+	else
+	{
+		char = origText[index]
+	}
 	console.log(char);
 	text = text.replaceAt(index, char);
 	console.log("text = "+text);
