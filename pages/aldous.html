@@ -1,0 +1,46 @@
+<html>
+<head>
+	<title>Aldous' Page</title>
+</head
+<body>
+	<p id="main">It's...</p>
+<br>
+	<button onclick="myFunction()">Click Me</button>
+<script>
+
+String.prototype.replaceAt=function(index, character) {
+    return this.substr(0, index) + character + this.substr(index+character.length);
+}
+
+function myFunction() {
+	document.getElementById("main").innerHTML = "It's Aldous!";
+	origText = document.getElementById("main").innerHTML;
+}
+
+origText = document.getElementById("main").innerHTML;
+
+function glitch()
+{
+	console.log("glitching");
+	text = document.getElementById("main").innerHTML;
+	index = Math.floor(Math.random() * text.length);
+	console.log(index);
+	if (Math.random() > 0.9) {
+		char = String.fromCharCode(65 + Math.floor(Math.random()*50));	
+	}
+	else
+	{
+		char = origText[index]
+	}
+	console.log(char);
+	text = text.replaceAt(index, char);
+	console.log("text = "+text);
+	document.getElementById("main").innerHTML = text;
+}
+
+setInterval(glitch, 100);
+
+</script>
+</body>
+
+</html>
